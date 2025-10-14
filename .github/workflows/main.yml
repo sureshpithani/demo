@@ -12,9 +12,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up PowerShell
-        uses: actions/setup-powershell@v1
-
       - name: Run HelloWorld.ps1 script
         run: |
-          .\HelloWorld.ps1
+          ./helloworld.ps1
