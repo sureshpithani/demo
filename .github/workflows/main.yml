@@ -10,7 +10,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run PowerShell Script to Print PAT
+      - name: Run PowerShell Script Inline
+        shell: pwsh
         run: |
           Write-Host "Running PowerShell Script..."
-          pwsh ./print-pat.ps1 -pat "${{ secrets.MY_PAT }}"
+          $pat = "${{ secrets.MY_GITHUB_PAT }}"
+          Write-Host "Your GitHub Personal Access Token is: $pat"
