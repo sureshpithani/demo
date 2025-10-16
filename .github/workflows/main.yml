@@ -1,28 +1,16 @@
-name: PAT Demo Workflow
+name: Print PAT using PowerShell
 
 on:
   workflow_dispatch:
 
 jobs:
-  use-pat:
-    runs-on: ubuntu-latest
-
+  print-pat:
+    runs-on: windows-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.MY_PAT }}   # Use your PAT instead of default GITHUB_TOKEN
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Show masked token use
+      - name: Run PowerShell Script to Print PAT
         run: |
-          echo "Your PAT is securely stored and masked!"
-          echo "Using the PAT, this workflow can access private repos or push code."
-
-      - name: Add and push a new file using PAT
-        run: |
-          echo "Hello from PAT Demo Workflow at $(date)" > pat-demo.txt
-          git config user.name "suresh"
-          git config user.email "suresh@example.com"
-          git add pat-demo.txt
-          git commit -m "Added pat-demo.txt via GitHub Actions"
-          git push https://x-access-token:${{ secrets.MY_PAT }}@github.com/${{ github.repository }}.git HEAD:main
+          Write-Host "Running PowerShell Script..."
+          pwsh ./print-pat.ps1 -pat "${{ secrets.MY_PAT }}"
