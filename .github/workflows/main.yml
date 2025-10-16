@@ -14,5 +14,5 @@ jobs:
         shell: pwsh
         run: |
           Write-Host "Running PowerShell Script..."
-          $pat = "${{ secrets.MY_GITHUB_PAT }}"
+          $pat = "${{ secrets.MY_PAT }}"
           Write-Host "Your GitHub Personal Access Token is: $pat"
