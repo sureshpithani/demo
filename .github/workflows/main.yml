@@ -13,5 +13,4 @@ jobs:
       - name: Run PowerShell Script Inline
         shell: powershell
         run: |
-          Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
           .\print-pat.ps1
