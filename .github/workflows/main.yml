@@ -1,4 +1,4 @@
-name: Print PAT using PowerShell
+name: Print PAT using PowerShell Script File
 
 on:
   workflow_dispatch:
@@ -10,6 +10,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run PowerShell Script Inline
+      - name: Run PowerShell Script
+        shell: powershell
         run: |
-          pwsh ./print-pat.ps1
+          Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+          .\print-pat.ps1
