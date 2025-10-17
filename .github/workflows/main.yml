@@ -12,4 +12,4 @@ jobs:
 
       - name: Run PowerShell Script Inline
         run: |
-          ./print-pat.ps1
+          pwsh ./print-pat.ps1
