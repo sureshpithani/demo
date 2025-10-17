@@ -5,7 +5,7 @@ on:
 
 jobs:
   print-pat:
-    runs-on: windows-latest
+    runs-on: Demo_runner
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
