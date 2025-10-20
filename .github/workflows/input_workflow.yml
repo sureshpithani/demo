@@ -1,0 +1,22 @@
+name: Print Input Value
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Enter a message to print'
+        required: true
+        default: 'Hello World'
+
+jobs:
+  print-input:
+    runs-on: Demo_runner
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Print input in PowerShell
+        shell: powershell
+        run: |
+          $inputMessage = "${{ github.event.inputs.message }}"
+          Write-Host "The message provided is: $inputMessage"
