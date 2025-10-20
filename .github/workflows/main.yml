@@ -10,7 +10,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run PowerShell Script
-        run: powershell.exe -ExecutionPolicy Bypass -File print-pat.ps1
+      - name: Run PowerShell Script safely
+        shell: cmd
+        run: |
+          powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File print-pat.ps1
         env:
           MY_PAT: ${{ secrets.MY_PAT }}
