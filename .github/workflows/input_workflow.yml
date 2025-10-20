@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Print input in PowerShell
-        shell: powershell
+        shell: pwsh
         run: |
           $inputMessage = "${{ github.event.inputs.message }}"
           Write-Host "The message provided is: $inputMessage"
